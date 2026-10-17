@@ -1,0 +1,56 @@
+{
+  "s4hana_versions": ["1511","1610","1709","1809","1909","2020","2021","2022","2023"],
+  "upgrade_paths": {
+    "1511": ["1610"],
+    "1610": ["1709","1809","1909","2020","2021","2022","2023"],
+    "1709": ["1809","1909","2020","2021","2022","2023"],
+    "1809": ["1909","2020","2021","2022","2023"],
+    "1909": ["2020","2021","2022","2023"],
+    "2020": ["2021","2022","2023"],
+    "2021": ["2022","2023"],
+    "2022": ["2023"]
+  },
+  "hana_prerequisites": {
+    "1511": { "major": 1, "sps": 10 },
+    "1610": { "major": 1, "sps": 12 },
+    "1709": { "major": 2, "sps": 2 },
+    "1809": { "major": 2, "sps": 3 },
+    "1909": { "major": 2, "sps": 4 },
+    "2020": { "major": 2, "sps": 5 },
+    "2021": { "major": 2, "sps": 5 },
+    "2022": { "major": 2, "sps": 6 },
+    "2023": { "major": 2, "sps": 7 }
+  },
+  "os_prerequisites": {
+    "1511": {},
+    "1610": {},
+    "1709": {
+      "SLES": [{"major":12,"sp_min":2,"sp_max":null}],
+      "RHEL": [{"major":7,"minor_min":3,"minor_max":null}]
+    },
+    "1809": {
+      "SLES": [{"major":12,"sp_min":3,"sp_max":null},{"major":15,"sp_min":0,"sp_max":null}],
+      "RHEL": [{"major":7,"minor_min":4,"minor_max":null},{"major":8,"minor_min":0,"minor_max":null}]
+    },
+    "1909": {
+      "SLES": [{"major":12,"sp_min":4,"sp_max":null},{"major":15,"sp_min":1,"sp_max":null}],
+      "RHEL": [{"major":7,"minor_min":6,"minor_max":null},{"major":8,"minor_min":0,"minor_max":null}]
+    },
+    "2020": {
+      "SLES": [{"major":12,"sp_min":5,"sp_max":5},{"major":15,"sp_min":1,"sp_max":null}],
+      "RHEL": [{"major":7,"minor_min":9,"minor_max":9},{"major":8,"minor_min":0,"minor_max":null}]
+    },
+    "2021": {
+      "SLES": [{"major":12,"sp_min":5,"sp_max":5},{"major":15,"sp_min":2,"sp_max":null}],
+      "RHEL": [{"major":7,"minor_min":9,"minor_max":9},{"major":8,"minor_min":0,"minor_max":null}]
+    },
+    "2022": {
+      "SLES": [{"major":15,"sp_min":3,"sp_max":null}],
+      "RHEL": [{"major":8,"minor_min":0,"minor_max":null}]
+    },
+    "2023": {
+      "SLES": [{"major":15,"sp_min":4,"sp_max":null}],
+      "RHEL": [{"major":8,"minor_min":0,"minor_max":null},{"major":9,"minor_min":0,"minor_max":null}]
+    }
+  }
+}
