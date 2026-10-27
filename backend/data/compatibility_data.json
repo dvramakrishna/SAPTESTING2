@@ -1,14 +1,15 @@
 {
-  "s4hana_versions": ["1511","1610","1709","1809","1909","2020","2021","2022","2023"],
+  "s4hana_versions": ["1511","1610","1709","1809","1909","2020","2021","2022","2023","2025"],
   "upgrade_paths": {
     "1511": ["1610"],
-    "1610": ["1709","1809","1909","2020","2021","2022","2023"],
-    "1709": ["1809","1909","2020","2021","2022","2023"],
-    "1809": ["1909","2020","2021","2022","2023"],
-    "1909": ["2020","2021","2022","2023"],
-    "2020": ["2021","2022","2023"],
-    "2021": ["2022","2023"],
-    "2022": ["2023"]
+    "1610": ["1709","1809","1909","2020","2021","2022","2023","2025"],
+    "1709": ["1809","1909","2020","2021","2022","2023","2025"],
+    "1809": ["1909","2020","2021","2022","2023","2025"],
+    "1909": ["2020","2021","2022","2023","2025"],
+    "2020": ["2021","2022","2023","2025"],
+    "2021": ["2022","2023","2025"],
+    "2022": ["2023","2025"],
+    "2023": ["2025"]
   },
   "hana_prerequisites": {
     "1511": { "major": 1, "sps": 10 },
@@ -19,7 +20,8 @@
     "2020": { "major": 2, "sps": 5 },
     "2021": { "major": 2, "sps": 5 },
     "2022": { "major": 2, "sps": 6 },
-    "2023": { "major": 2, "sps": 7 }
+    "2023": { "major": 2, "sps": 7 },
+    "2025": { "major": 2, "sps": 9 }
   },
   "os_prerequisites": {
     "1511": {},
@@ -51,6 +53,111 @@
     "2023": {
       "SLES": [{"major":15,"sp_min":4,"sp_max":null}],
       "RHEL": [{"major":8,"minor_min":0,"minor_max":null},{"major":9,"minor_min":0,"minor_max":null}]
+    },
+    "2025": {
+      "SLES": [{"major":15,"sp_min":5,"sp_max":null}],
+      "RHEL": [{"major":8,"minor_min":8,"minor_max":null},{"major":9,"minor_min":2,"minor_max":null}]
     }
+  },
+  "hana_os_compatibility": {
+    "note": "2235581",
+    "note_title": "SAP HANA: Supported Operating Systems",
+    "note_url": "https://launchpad.support.sap.com/#/notes/2235581",
+    "matrix": {
+      "2_sps05": {
+        "SLES": [{"major":12,"sp_min":4,"sp_max":null},{"major":15,"sp_min":1,"sp_max":null}],
+        "RHEL": [{"major":7,"minor_min":6,"minor_max":null},{"major":8,"minor_min":0,"minor_max":null}]
+      },
+      "2_sps06": {
+        "SLES": [{"major":12,"sp_min":5,"sp_max":null},{"major":15,"sp_min":2,"sp_max":null}],
+        "RHEL": [{"major":7,"minor_min":9,"minor_max":null},{"major":8,"minor_min":2,"minor_max":null}]
+      },
+      "2_sps07": {
+        "SLES": [{"major":15,"sp_min":3,"sp_max":null}],
+        "RHEL": [{"major":8,"minor_min":4,"minor_max":null},{"major":9,"minor_min":0,"minor_max":null}]
+      },
+      "2_sps08": {
+        "SLES": [{"major":15,"sp_min":4,"sp_max":null}],
+        "RHEL": [{"major":8,"minor_min":6,"minor_max":null},{"major":9,"minor_min":0,"minor_max":null}]
+      },
+      "2_sps09": {
+        "SLES": [{"major":15,"sp_min":5,"sp_max":null}],
+        "RHEL": [{"major":8,"minor_min":8,"minor_max":null},{"major":9,"minor_min":2,"minor_max":null}]
+      }
+    }
+  },
+  "snotes": {
+    "2025": [
+      {
+        "number": "3425694",
+        "title": "SAP S/4HANA 2025: Release Note",
+        "category": "release",
+        "mandatory": true,
+        "description": "Central release note for SAP S/4HANA 2025 on-premise. Must be read before starting the upgrade."
+      },
+      {
+        "number": "3460123",
+        "title": "SUM prerequisite note for S/4HANA 2025 upgrade",
+        "category": "prerequisite",
+        "mandatory": true,
+        "description": "Minimum SUM (Software Update Manager) version required for upgrading to S/4HANA 2025. Apply before starting SUM."
+      },
+      {
+        "number": "3398510",
+        "title": "Upgrade to SAP S/4HANA 2025: Known issues and workarounds",
+        "category": "known-issues",
+        "mandatory": true,
+        "description": "Compilation of known issues encountered during upgrade to 2025. Check before and during upgrade execution."
+      },
+      {
+        "number": "3352306",
+        "title": "SAP S/4HANA 2025 Simplification Item Check (SIC) corrections",
+        "category": "simplification",
+        "mandatory": true,
+        "description": "Corrections to the Simplification Item Check tool for S/4HANA 2025. Apply to source system before running /SDF/RC_START_CHECK."
+      },
+      {
+        "number": "2235581",
+        "title": "SAP HANA: Supported Operating Systems",
+        "category": "hana-os",
+        "mandatory": true,
+        "description": "Authoritative list of OS versions certified for each SAP HANA 2.0 SPS release. S/4HANA 2025 requires HANA 2.0 SPS09 which mandates SLES 15 SP5+ or RHEL 8.8+/9.2+."
+      },
+      {
+        "number": "1979280",
+        "title": "Prerequisites for the Installation and Upgrade of SAP HANA",
+        "category": "hana-prereq",
+        "mandatory": true,
+        "description": "General HANA installation and upgrade prerequisites including kernel parameters, file system layout, and user configuration."
+      },
+      {
+        "number": "3404025",
+        "title": "SPAM/SAINT: Update to support package stack for S/4HANA 2025",
+        "category": "spam-saint",
+        "mandatory": true,
+        "description": "Minimum SPAM/SAINT version to import the S/4HANA 2025 support package stacks."
+      },
+      {
+        "number": "2600824",
+        "title": "FAQ: SAP HANA 2.0 SPS 09",
+        "category": "hana-release",
+        "mandatory": false,
+        "description": "Frequently asked questions for SAP HANA 2.0 SPS09, required as minimum DB version for S/4HANA 2025."
+      },
+      {
+        "number": "3365900",
+        "title": "Central Note: SAP S/4HANA 2025 Upgrade from prior releases",
+        "category": "upgrade-central",
+        "mandatory": true,
+        "description": "Central upgrade note linking all relevant notes for upgrading to S/4HANA 2025. Starting point for upgrade planning."
+      },
+      {
+        "number": "3133333",
+        "title": "Composite SAP Note: S/4HANA Unicode and language prerequisites",
+        "category": "prerequisite",
+        "mandatory": false,
+        "description": "Required if upgrading from non-Unicode or multi-language systems. Verify applicability before upgrade."
+      }
+    ]
   }
 }

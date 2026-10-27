@@ -3,6 +3,7 @@ import { fetchVersions, analyzeUpgrade } from './api/client'
 import type { AnalyzeRequest, AnalyzeResponse } from './types'
 import EnvironmentForm from './components/EnvironmentForm'
 import UpgradePathCard from './components/UpgradePathCard'
+import SNotesPanel from './components/SNotesPanel'
 import LoadingSpinner from './components/LoadingSpinner'
 import './App.css'
 
@@ -53,15 +54,21 @@ export default function App() {
         {loading && <LoadingSpinner />}
 
         {result && !loading && (
-          <section className="results">
-            <h2>
-              Upgrade Paths: {result.current_s4_version} → {result.target_s4_version}
-              <span className="path-count">{result.upgrade_paths.length} path{result.upgrade_paths.length !== 1 ? 's' : ''} found</span>
-            </h2>
-            {result.upgrade_paths.map((p, i) => (
-              <UpgradePathCard key={i} path={p} index={i} />
-            ))}
-          </section>
+          <>
+            <section className="results">
+              <h2>
+                Upgrade Paths: {result.current_s4_version} → {result.target_s4_version}
+                <span className="path-count">{result.upgrade_paths.length} path{result.upgrade_paths.length !== 1 ? 's' : ''} found</span>
+              </h2>
+              {result.upgrade_paths.map((p, i) => (
+                <UpgradePathCard key={i} path={p} index={i} />
+              ))}
+            </section>
+
+            {result.snotes.length > 0 && (
+              <SNotesPanel snotes={result.snotes} targetVersion={result.target_s4_version} />
+            )}
+          </>
         )}
       </main>
     </div>

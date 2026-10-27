@@ -14,7 +14,7 @@ export default function UpgradePathCard({ path, index }: Props) {
     ? <span className="badge badge-direct">Direct</span>
     : <span className="badge badge-hop">Via {path.intermediate_hops.join(', ')}</span>
 
-  const hasIssues = path.hana_gap.upgrade_needed || path.os_gap.upgrade_needed
+  const hasIssues = path.hana_gap.upgrade_needed || path.os_gap.upgrade_needed || !path.hana_os_gap.is_compatible
 
   return (
     <div className={`path-card ${hasIssues ? 'path-card-issues' : 'path-card-ok'}`}>
@@ -29,7 +29,7 @@ export default function UpgradePathCard({ path, index }: Props) {
 
       <section>
         <h4>Gap Analysis</h4>
-        <GapAnalysisTable hanaGap={path.hana_gap} osGap={path.os_gap} />
+        <GapAnalysisTable hanaGap={path.hana_gap} osGap={path.os_gap} hanaOsGap={path.hana_os_gap} />
       </section>
 
       <section>
@@ -43,3 +43,4 @@ export default function UpgradePathCard({ path, index }: Props) {
     </div>
   )
 }
+

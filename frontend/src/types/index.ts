@@ -33,9 +33,26 @@ export interface OsGap {
   message: string
 }
 
+export interface HanaOsGap {
+  hana_target_label: string
+  os_current_label: string
+  is_compatible: boolean
+  supported_os_for_hana: string[]
+  message: string
+  note_reference: string
+}
+
+export interface SNote {
+  number: string
+  title: string
+  category: string
+  mandatory: boolean
+  description: string
+}
+
 export interface ActionStep {
   step: number
-  component: 'OS' | 'HANA DB' | 'S/4HANA'
+  component: 'OS' | 'HANA DB' | 'S/4HANA' | 'SAP Note'
   action: string
 }
 
@@ -45,6 +62,7 @@ export interface UpgradePath {
   intermediate_hops: string[]
   hana_gap: HanaGap
   os_gap: OsGap
+  hana_os_gap: HanaOsGap
   action_plan: ActionStep[]
   upgrade_possible: boolean
 }
@@ -53,5 +71,7 @@ export interface AnalyzeResponse {
   current_s4_version: string
   target_s4_version: string
   upgrade_paths: UpgradePath[]
+  snotes: SNote[]
   error: string | null
 }
+

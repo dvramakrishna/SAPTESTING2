@@ -247,3 +247,79 @@ select:focus, input[type="number"]:focus { border-color: #2563eb; }
   line-height: 1.5;
   padding-left: 1.6rem;
 }
+
+/* note-ref in gap table */
+.note-ref {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* SNotes panel */
+.snotes-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.snotes-heading {
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  color: #1a2744;
+}
+.snotes-sub {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.snotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+}
+
+.snote-card {
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.snote-mandatory { background: #fff7ed; border-left-color: #f97316; }
+.snote-optional  { background: #f8fafc; border-left-color: #94a3b8; }
+
+.snote-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.snote-number {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1a2744;
+}
+.snote-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+.snote-desc {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+.snote-link {
+  font-size: 0.8rem;
+  color: #2563eb;
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+.snote-link:hover { text-decoration: underline; }
